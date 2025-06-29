@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  dns:
+    build: .
+    container_name: dns_adblocker
+    ports:
+      - "53:53/udp"
+    cap_add:
+      - NET_BIND_SERVICE
+    restart: unless-stopped
