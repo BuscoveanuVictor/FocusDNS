@@ -1,9 +1,9 @@
 services:
   dns:
-    container_name: dns
     build: 
       context: .
       dockerfile: ./Dockerfile/Dockerfile.dns
+    container_name: dns
     ports:
       - "53:53/udp"
     cap_add:
@@ -11,19 +11,20 @@ services:
     restart: unless-stopped
 
   api:
-    container_name: api
-    hostname: api
     build: 
       context: .
       dockerfile: ./Dockerfile/Dockerfile.api
+    container_name: api
+    hostname: api
+   
     ports:
       - "5000:5000"
     networks:
       - my_network
 
   nginx:
-    container_name: nginx
     image: nginx:alpine
+    container_name: nginx
     ports:
       - "80:80"
     volumes:
