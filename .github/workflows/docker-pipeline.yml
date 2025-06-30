@@ -3,7 +3,7 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - main  # Rulează workflow-ul doar pe push în branch-ul `main`
+      - staging 
 
 jobs:
   build-and-push:
