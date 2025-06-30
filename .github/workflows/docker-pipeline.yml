@@ -22,21 +22,21 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Build and push API image
-      - name: Build and push API image
-        run: |
-          docker buildx build \
-            --platform linux/amd64,linux/arm64 \
-            -t ${{ secrets.DOCKER_USERNAME }}/flask_api:staging \
-            -f ./Dockerfile/Dockerfile.api \
-            --push .
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile/Dockerfile.api
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ secrets.DOCKER_USERNAME }}/flask_api:staging
 
-      # Build and push DNS image
-      - name: Build and push DNS image
-        run: |
-          docker buildx build \
-            --platform linux/amd64,linux/arm64 \
-            -t ${{ secrets.DOCKER_USERNAME }}/dns:staging \
-            -f ./Dockerfile/Dockerfile.dns \
-            --push .
-
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile/Dockerfile.dns
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ secrets.DOCKER_USERNAME }}/dns:staging
   
