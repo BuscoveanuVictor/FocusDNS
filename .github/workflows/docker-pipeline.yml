@@ -3,7 +3,7 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - staging 
+      - main 
 
 jobs:
   build-and-push:
@@ -37,7 +37,7 @@ jobs:
           file: ./Dockerfile/Dockerfile.api
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flask_api:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/flask_api:prod
 
       # Build and push DNS image
       - name: Build and push DNS image
@@ -47,6 +47,6 @@ jobs:
           file: ./Dockerfile/Dockerfile.dns
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/dns:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/dns:prod
 
   
