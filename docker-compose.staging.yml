@@ -1,6 +1,6 @@
 services:
   dns:
-    image: buscoveanuvictor/dns:latest
+    image: buscoveanuvictor/dns:staging
     container_name: dns
     ports:
       - "53:53/udp"
@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
 
   api:
-    image: buscoveanuvictor/flask_api:latest
+    image: buscoveanuvictor/flask_api:staging
     container_name: api
     hostname: api
     ports:
