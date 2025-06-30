@@ -2,8 +2,8 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY dns_adblocker.py .
-COPY blocklist.txt .
+COPY /dns/dns_adblocker.py .
+COPY /dns/blocklist.txt .
 
 RUN pip install scapy
 
