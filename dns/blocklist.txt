@@ -1,9 +1,0 @@
-101com.com
-doubleclick.net
-ads.example.com
-ad-delivery.net
-ad.doubleclick.net
-googleads.g.doubleclick.net
-securepubads.g.doubleclick.net
-doubleclick.net
-google.com
