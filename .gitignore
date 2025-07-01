@@ -60,3 +60,6 @@ __pypackages__/
 
 # Ignore nginx logs
 nginx/logs/
+
+# Ignore line ending normalization warnings
+*.gitattributes

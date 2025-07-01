@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 19000 19001 19002 19006
 
-CMD ["npx", "expo", "start", "--tunnel"]
+CMD ["npx", "expo", "start", "--lan"]

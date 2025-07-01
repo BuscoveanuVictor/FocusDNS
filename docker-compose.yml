@@ -10,15 +10,18 @@ services:
       - NET_BIND_SERVICE
     restart: unless-stopped
 
-  api:
+  app:
     build: 
       context: .
-      dockerfile: ./Dockerfile/Dockerfile.api
-    container_name: api
-    hostname: api
-   
+      dockerfile: ./Dockerfile/Dockerfile.app
+    container_name: app
+    hostname: app
     ports:
-      - "5000:5000"
+      - "8081:8081"
+      - "19000:19000"
+      - "19001:19001"
+      - "19002:19002"
+      - "19006:19006"
     networks:
       - my_network
 
