@@ -34,10 +34,10 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile/Dockerfile.api
+          file: ./Dockerfile/Dockerfile.app
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flask_api:prod
+          tags: ${{ secrets.DOCKER_USERNAME }}/app:staging
 
       # Build and push DNS image
       - name: Build and push DNS image
@@ -47,6 +47,6 @@ jobs:
           file: ./Dockerfile/Dockerfile.dns
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/dns:prod
+          tags: ${{ secrets.DOCKER_USERNAME }}/dns:staging
 
   
