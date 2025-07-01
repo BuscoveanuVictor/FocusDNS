@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
 
   app:
-    image: buscoveanuvictor/flask_app:latest
+    image: buscoveanuvictor/app:staging
     container_name: app
     hostname: app
     ports:
