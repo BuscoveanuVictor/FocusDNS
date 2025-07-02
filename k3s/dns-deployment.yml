@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dns
+  template:
+    metadata:
+      labels:
+        app: dns
+    spec:
+      containers:
+        - name: dns
+          image: buscoveanuvictor/dns:staging
+          ports:
+            - containerPort: 53
+              protocol: UDP
+          securityContext:
+            capabilities:
+              add: ["NET_BIND_SERVICE"]
